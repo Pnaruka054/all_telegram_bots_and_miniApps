@@ -19,7 +19,6 @@ const group_help_advance_all_actions = require('./own_projects/Group_help_advanc
 const project_01 = require('./clients/project_01/bot_index')
 const project_02 = require('./clients/project_02/bot_index')
 const globle_domain = process.env.GLOBLE_DOMAIN
-const LOG = require('./globle_helper/logger')
 
 // all system middleware
 app.use(cors())
@@ -218,17 +217,14 @@ app.use(`/${project_01_token}`, project_01_routes)
 // Express app to keep server alive
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, "0.0.0.0", () => {
-    LOG(`Server running on port ${PORT}`);
     console.log("Server running on port", PORT);
 });
 
 // Global Error Handlers (So one bot’s error doesn't crash others)
 process.on('uncaughtException', (err) => {
     console.error('🔥 Uncaught Exception:', err);
-    LOG('🔥 Uncaught Exception:', err);
 });
 
 process.on('unhandledRejection', (reason, promise) => {
     console.error('⚠ Unhandled Rejection:', reason);
-    LOG('⚠ Unhandled Rejection:', reason);
 });

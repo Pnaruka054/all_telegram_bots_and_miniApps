@@ -225,6 +225,7 @@ app.get('/promox/post', (req, res) => {
 app.post("/promox/post", upload.single("logo"), async (req, res) => {
     try {
         const { user_id } = req.cookies;
+        console.log(user_id);
         if (!user_id) return res.status(401).json({ message: "Unauthorized: Login required" });
 
         // Find user to verify

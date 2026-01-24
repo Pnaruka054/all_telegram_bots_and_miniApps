@@ -201,7 +201,7 @@
             // Show full page loader before running show_9690148
             pageLoader.classList.remove("hidden");
 
-            await show_9690148();
+            await show_9678628();
 
             // Hide loader after it finishes
             pageLoader.classList.add("hidden");
@@ -223,9 +223,9 @@
                 return;
             }
 
-            // Username validation: Telegram style (no @, no spaces, only a-z 0-9 _)
-            if (!/^[a-zA-Z0-9_]{5,32}$/.test(usernameValue)) {
-                alert("Username must be 5-32 characters long, only letters, numbers, and underscores allowed (no @, spaces, or links).");
+            // Username validation: no spaces, @ allowed, cannot start with number
+            if (!/^(?!\d)[A-Za-z0-9_@]{5,32}$/.test(usernameValue)) {
+                alert("Username must be 5-32 chars, no spaces, @ allowed, and cannot start with a number.");
                 return;
             }
 

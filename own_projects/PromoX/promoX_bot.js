@@ -80,7 +80,6 @@ module.exports = (bot) => {
         const userId = ctx.from.id;
         const results = await checkUserJoinedAllChannels(ctx, userId);
         const allJoined = results.every((status) => status === true);
-
         if (allJoined) {
             await ctx.reply("✅ You're already a member of all channels!");
             await sendMiniAppIntro(ctx);
